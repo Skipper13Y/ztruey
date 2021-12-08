@@ -10,4 +10,8 @@ public class Dict {
      * 首页请求
      */
     public static final String index = "html/index";
+    /**
+     * Mapper扫描位置
+     */
+    public static final String mapper = "com.hekaikai666.ztruey.mapper";
 }
