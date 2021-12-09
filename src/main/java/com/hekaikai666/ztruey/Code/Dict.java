@@ -14,4 +14,16 @@ public class Dict {
      * Mapper扫描位置
      */
     public static final String mapper = "com.hekaikai666.ztruey.mapper";
+    /**
+     * 登录请求
+     */
+    public static final String login = "html/login";
+    /**
+     * 登录成功
+     */
+    public static final String success = "html/success";
+    /**
+     * 登录失败
+     */
+    public static final String error = "html/error";
 }

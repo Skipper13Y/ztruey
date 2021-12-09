@@ -14,7 +14,7 @@ public class UsersServiceImpl implements UsersService {
     private UsersMapper userMapper;
 
     @Override
-    public Users loginIn(String name, String password) {
-        return userMapper.getUserInfo(name, password);
+    public Users loginIn(String username, String password) {
+        return userMapper.getUserInfo(username, password);
     }
 }

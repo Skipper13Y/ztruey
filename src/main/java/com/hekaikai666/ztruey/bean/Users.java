@@ -4,7 +4,7 @@ import java.util.Objects;
 
 public class Users {
     private int id;
-    private String name;
+    private String username;
     private String password;
 
     public Users() {
@@ -18,12 +18,12 @@ public class Users {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getUsername() {
+        return username;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getPassword() {
@@ -40,12 +40,12 @@ public class Users {
         if (o == null || getClass() != o.getClass()) return false;
         Users userBean = (Users) o;
         return id == userBean.id &&
-                Objects.equals(name, userBean.name) &&
+                Objects.equals(username, userBean.username) &&
                 Objects.equals(password, userBean.password);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, password);
+        return Objects.hash(id, username, password);
     }
 }

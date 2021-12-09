@@ -1,5 +1,6 @@
 package com.hekaikai666.ztruey.controller;
 
+import com.hekaikai666.ztruey.Code.Dict;
 import com.hekaikai666.ztruey.bean.Users;
 import com.hekaikai666.ztruey.service.UsersService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,16 +16,16 @@ public class LoginController {
 
     @RequestMapping("/login")
     public String show() {
-        return "login";
+        return Dict.login;
     }
 
     @RequestMapping(value = "/loginIn", method = RequestMethod.POST)
-    public String login(String name, String password) {
-        Users users = usersService.loginIn(name, password);
+    public String login(String username, String password) {
+        Users users = usersService.loginIn(username, password);
         if (users != null) {
-            return "success";
+            return Dict.success;
         } else {
-            return "error";
+            return Dict.error;
         }
     }
 }
