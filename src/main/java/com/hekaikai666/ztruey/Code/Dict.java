@@ -9,7 +9,7 @@ public class Dict {
     /**
      * 首页请求
      */
-    public static final String index = "html/index";
+    public static final String index = "index";
     /**
      * Mapper扫描位置
      */
