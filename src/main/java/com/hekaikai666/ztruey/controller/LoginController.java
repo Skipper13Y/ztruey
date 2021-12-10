@@ -5,8 +5,10 @@ import com.hekaikai666.ztruey.bean.Users;
 import com.hekaikai666.ztruey.service.UsersService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class LoginController {
@@ -27,5 +29,12 @@ public class LoginController {
         } else {
             return Dict.error;
         }
+    }
+
+    @RequestMapping(value = "/userLogin", method = RequestMethod.POST)
+    @ResponseBody
+    public String userLogin(Users users) {
+        System.out.println(users);
+        return Dict.success;
     }
 }

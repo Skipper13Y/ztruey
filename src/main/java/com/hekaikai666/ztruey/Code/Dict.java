@@ -17,13 +17,13 @@ public class Dict {
     /**
      * 登录请求
      */
-    public static final String login = "html/login";
+    public static final String login = "static/html/login";
     /**
      * 登录成功
      */
-    public static final String success = "html/success";
+    public static final String success = "static/html/success";
     /**
      * 登录失败
      */
-    public static final String error = "html/error";
+    public static final String error = "static/html/error";
 }

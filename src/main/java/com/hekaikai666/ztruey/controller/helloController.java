@@ -16,4 +16,13 @@ public class helloController {
     public String sayHello() {
         return Dict.index;
     }
+
+    /**
+     * 跳转到测试登录界面
+     * @return
+     */
+    @RequestMapping("/hello")
+    public String sayHello2() {
+        return "static/html/login";
+    }
 }
