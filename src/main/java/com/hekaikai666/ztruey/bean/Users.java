@@ -6,6 +6,7 @@ public class Users {
     private int id;
     private String username;
     private String password;
+    private String VerifyCode;
 
     public Users() {
     }
@@ -34,18 +35,27 @@ public class Users {
         this.password = password;
     }
 
+    public String getVerifyCode() {
+        return VerifyCode;
+    }
+
+    public void setVerifyCode(String verifyCode) {
+        VerifyCode = verifyCode;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Users userBean = (Users) o;
-        return id == userBean.id &&
-                Objects.equals(username, userBean.username) &&
-                Objects.equals(password, userBean.password);
+        if (!(o instanceof Users)) return false;
+        Users users = (Users) o;
+        return getId() == users.getId() &&
+                Objects.equals(getUsername(), users.getUsername()) &&
+                Objects.equals(getPassword(), users.getPassword()) &&
+                Objects.equals(getVerifyCode(), users.getVerifyCode());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, username, password);
+        return Objects.hash(getId(), getUsername(), getPassword(), getVerifyCode());
     }
 }
