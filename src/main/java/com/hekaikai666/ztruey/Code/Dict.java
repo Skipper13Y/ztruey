@@ -1,29 +1,20 @@
 package com.hekaikai666.ztruey.Code;
 
-/**
- * @Author akai
- * @data 2021年12月7日11:27:48
- * @title 应用数据字典
- */
 public class Dict {
     /**
-     * 首页请求
+     * 响应参数
      */
-    public static final String index = "index";
+    public static final String RETURN ="_Return";
     /**
-     * Mapper扫描位置
+     * 响应任务ID
      */
-    public static final String mapper = "com.hekaikai666.ztruey.mapper";
+    public static final String TASKID = "_TaskId";
     /**
-     * 登录请求
+     * 响应信息
      */
-    public static final String login = "static/html/login";
+    public static final String MESSAGE = "Message";
     /**
-     * 登录成功
+     * 响应数据
      */
-    public static final String success = "static/html/success";
-    /**
-     * 登录失败
-     */
-    public static final String error = "static/html/error";
+    public static final String DATA = "Data";
 }

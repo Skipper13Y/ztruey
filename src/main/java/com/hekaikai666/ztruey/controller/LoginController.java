@@ -2,20 +2,17 @@ package com.hekaikai666.ztruey.controller;
 
 
 import com.alibaba.fastjson.JSONObject;
-import com.hekaikai666.ztruey.Code.Dict;
+import com.hekaikai666.ztruey.Code.ReqCode;
 import com.hekaikai666.ztruey.bean.Users;
 import com.hekaikai666.ztruey.service.UsersService;
-import org.apache.shiro.SecurityUtils;
-import org.apache.shiro.authc.IncorrectCredentialsException;
-import org.apache.shiro.authc.UnknownAccountException;
-import org.apache.shiro.authc.UsernamePasswordToken;
-import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import java.util.Map;
 
 @Controller
 public class LoginController {
@@ -25,25 +22,32 @@ public class LoginController {
 
     @RequestMapping("/login")
     public String show() {
-        return Dict.login;
+        return ReqCode.login;
     }
 
     @RequestMapping(value = "/loginIn", method = RequestMethod.POST)
     public String login(String username, String password) {
         Users users = usersService.loginIn(username, password);
         if (users != null) {
-            return Dict.success;
+            return ReqCode.success;
         } else {
-            return Dict.error;
+            return ReqCode.error;
         }
     }
 
     @ResponseBody
     @RequestMapping(value = "/userLogin", method = RequestMethod.POST)
-    public String userLogin(@RequestBody JSONObject jsonParam) {
+    public String userLogin(@RequestBody JSONObject jsonParam, Map<String, Object> resp) {
         Users user = JSONObject.toJavaObject(jsonParam, Users.class);//将建json对象转换为Person对象
+        // 1.检查用户信息
+        if (usersService.loginCheck(user)) {
+
+        } else {
+            // 密码错误,返回前端提示 RespCode.PWD_NOT_MATCHED
+        }
         System.out.println(user.toString());
-        return Dict.success;
+//        resp.put(ReqCode)
+        return ReqCode.success;
     }
 //    @ResponseBody
 //    @RequestMapping(value = "/userLogin", method = RequestMethod.POST)
@@ -69,6 +73,6 @@ public class LoginController {
 //        }catch (IncorrectCredentialsException e){
 //            System.out.println("密码错误");
 //        }
-//        return Dict.success;
+//        return ReqCode.success;
 //    }
 }

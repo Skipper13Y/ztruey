@@ -17,4 +17,9 @@ public class UsersServiceImpl implements UsersService {
     public Users loginIn(String username, String password) {
         return userMapper.getUserInfo(username, password);
     }
+
+    @Override
+    public boolean loginCheck(Users users) {
+        return false;
+    }
 }

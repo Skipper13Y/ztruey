@@ -1,6 +1,5 @@
 package com.hekaikai666.ztruey.controller;
 
-import com.hekaikai666.ztruey.Code.Dict;
 import com.hekaikai666.ztruey.Code.ReqCode;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,7 +13,7 @@ public class helloController {
      */
     @RequestMapping("/")
     public String sayHello() {
-        return Dict.index;
+        return ReqCode.index;
     }
 
     /**
